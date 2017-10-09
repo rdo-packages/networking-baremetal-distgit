@@ -1,3 +1,9 @@
-# UUID                                  	Group Name
-#
+# UUID Group Name
+global:Registered-Users	Registered Users
+4572c517702492251ad622a289176552a8acbbb2	rdo-superusers
+global:Anonymous-Users	Anonymous Users
 05a678d3d4a168e149d5e8a0063bbd1b1c5526da	Administrators
+401cf37bee35d1c809d4d957e55f2a304f8eed69	rdo-provenpackagers
+7036894690a3eeda1ee181cadf8d92661ec950cc	openstack/networking-baremetal-core
+f126e1edf2cdf0e4eba8c45cd01f3bf7aec45d10	openstack/networking-baremetal-ptl
+6ddfecad023c6f4fa3ac8c4d2583c502ea675a73	Non-Interactive Users
