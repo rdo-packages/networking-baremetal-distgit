@@ -22,6 +22,30 @@
       "revId": "4864404c15e4f500298a807437c4a465b202c21c",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa963961_1cdd8d14",
+        "filename": "python-networking-baremetal.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 78
+      },
+      "writtenOn": "2018-01-11T11:27:57Z",
+      "side": 1,
+      "message": "I\u0027m not entirely sure. I can try removing it.",
+      "parentUuid": "fa963961_7cc7f945",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 34
+      },
+      "revId": "4864404c15e4f500298a807437c4a465b202c21c",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
