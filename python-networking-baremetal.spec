@@ -121,3 +121,4 @@ This package contains the documentation.
 
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/networking-baremetal/commit/?id=faf41e4af01e5623452bc8f26e1357cc60ef0a61
