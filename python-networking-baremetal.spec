@@ -11,6 +11,7 @@ Summary:        %{common_summary}
 License:        ASL 2.0
 URL:            https://pypi.python.org/pypi/%{pkgname}
 Source0:        https://tarballs.openstack.org/%{pkgname}/%{pkgname}-%{upstream_version}.tar.gz
+Source1:        ironic-neutron-agent.service
 
 BuildArch:      noarch
 BuildRequires:  git
@@ -27,6 +28,7 @@ BuildRequires:  python-fixtures
 BuildRequires:  python-os-testr
 BuildRequires:  python-oslotest
 BuildRequires:  python-subunit
+BuildRequires:  python-ironicclient
 BuildRequires:  python-neutron-lib
 BuildRequires:  python-neutron-tests
 BuildRequires:  python-oslo-config
@@ -38,23 +40,6 @@ This project's goal is to provide deep integration between the Networking
 service and the Bare Metal service and advanced networking features like
 notifications of port status changes and routed networks support in clouds with
 Bare Metal service.
-
-%prep
-%autosetup -n %{pkgname}-%{upstream_version} -S git
-%py_req_cleanup
-
-%build
-%py2_build
-%{__python2} setup.py build_sphinx -b html
-# remove the sphinx-build leftovers
-rm -rf doc/build/html/.{doctrees,buildinfo}
-
-%check
-ostestr --path %{srcname}/tests/unit
-
-%install
-%py2_install
-
 
 %package -n python2-%{pkgname}
 Summary:        %{common_summary}
@@ -92,9 +77,33 @@ Bare Metal service.
 
 This package contains the unit tests.
 
+%package -n python2-ironic-neutron-agent
+Summary:        %{common_summary} - Ironic Neutron Agent
+%{?python_provide:%python_provide python2-ironic-neutron-agent}
+BuildRequires:  systemd-units
+
+Requires:       python-%{pkgname}
+Requires:       python-keystoneauth1
+Requires:       python-ironicclient >= 1.14.0
+Requires:       python-neutron
+Requires:       python-neutron-lib >= 1.11.0
+Requires:       python-oslo-config >= 5.1.0
+Requires:       python-oslo-log >= 3.30.0
+Requires:       python-oslo-service
+%{?systemd_requires}
 
 %package doc
 Summary:        %{common_summary} - documentation
+
+%description -n python2-ironic-neutron-agent
+This project's goal is to provide deep integration between the Networking
+service and the Bare Metal service and advanced networking features like
+notifications of port status changes and routed networks support in clouds with
+Bare Metal service.
+
+This package contains a neutron agent that populates the host to
+physical network mapping for baremetal nodes in neutron. Neutron uses this to
+calculate the segment to host mapping information.
 
 %description doc
 This project's goal is to provide deep integration between the Networking
@@ -103,6 +112,34 @@ notifications of port status changes and routed networks support in clouds with
 Bare Metal service.
 
 This package contains the documentation.
+
+%prep
+%autosetup -n %{pkgname}-%{upstream_version} -S git
+%py_req_cleanup
+
+%build
+%py2_build
+%{__python2} setup.py build_sphinx -b html
+# remove the sphinx-build leftovers
+rm -rf doc/build/html/.{doctrees,buildinfo}
+
+%check
+ostestr --path %{srcname}/tests/unit
+
+%install
+%py2_install
+
+# Install systemd units
+install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/ironic-neutron-agent.service
+
+%post -n python2-ironic-neutron-agent
+%systemd_post ironic-neutron-agent.service
+
+%preun -n python2-ironic-neutron-agent
+%systemd_preun ironic-neutron-agent.service
+
+%postun -n python2-ironic-neutron-agent
+%systemd_postun_with_restart ironic-neutron-agent.service
 
 
 %files -n python2-%{pkgname}
@@ -114,6 +151,11 @@ This package contains the documentation.
 %files -n python2-%{pkgname}-tests
 %license LICENSE
 %{python2_sitelib}/%{srcname}/tests
+
+%files -n python2-ironic-neutron-agent
+%license LICENSE
+%{_bindir}/ironic-neutron-agent
+%{_unitdir}/ironic-neutron-agent.service
 
 %files doc
 %license LICENSE
