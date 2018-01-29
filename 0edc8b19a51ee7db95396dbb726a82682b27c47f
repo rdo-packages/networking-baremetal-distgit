@@ -69,6 +69,30 @@
       "revId": "0edc8b19a51ee7db95396dbb726a82682b27c47f",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa53dc9_e5d7f221",
+        "filename": "python-networking-baremetal.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 469
+      },
+      "writtenOn": "2018-01-29T10:57:29Z",
+      "side": 1,
+      "message": "We could in theory have the pythong-networking-baremetal package installed on the networking node. And the agent running somewhere else where the ml2 driver would not be used.\n\nI am not sure, if it makes sense to have the separate package if it depends on the pythong-networking-baremetal package anyway?\n\nThe ml2 driver that I belive would end up in pythong-networking-baremetal is kind of useless without the agent once https://review.openstack.org/#/c/521838/ lands.\n\nwdyt? drop the -agent specific package? Or have the constants.py in both packages?",
+      "parentUuid": "9aa53dc9_451a1e19",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 7
+      },
+      "revId": "0edc8b19a51ee7db95396dbb726a82682b27c47f",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
