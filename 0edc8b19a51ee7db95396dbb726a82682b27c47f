@@ -117,6 +117,30 @@
       "revId": "0edc8b19a51ee7db95396dbb726a82682b27c47f",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aa53dc9_054ad683",
+        "filename": "python-networking-baremetal.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2018-01-29T23:00:03Z",
+      "side": 1,
+      "message": "IIUC best would be to drop the subpackage if there inter-depdencies",
+      "parentUuid": "9aa53dc9_e5d7f221",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 7
+      },
+      "revId": "0edc8b19a51ee7db95396dbb726a82682b27c47f",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
