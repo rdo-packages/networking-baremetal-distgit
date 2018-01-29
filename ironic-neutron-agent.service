@@ -1,0 +1,15 @@
+[Unit]
+Description=OpenStack Ironic Neutron Agent
+After=syslog.target network.target
+
+[Service]
+Type=notify
+NotifyAccess=all
+TimeoutStartSec=0
+Restart=always
+User=neutron
+ExecStart=/usr/bin/ironic-neutron-agent --config-dir /etc/neutron --config-file /etc/neutron/plugins/ml2/ironic_neutron_agent.ini --log-file /var/log/neutron/ironic-neutron-agent.log
+
+[Install]
+WantedBy=multi-user.target
+
