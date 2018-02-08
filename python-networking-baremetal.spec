@@ -21,6 +21,8 @@ BuildRequires:  python-pbr
 # for documentation
 BuildRequires:  python-openstackdocstheme
 BuildRequires:  python-sphinx
+BuildRequires:  python-tooz
+BuildRequires:  python-oslo-messaging
 # for unit tests
 BuildRequires:  /usr/bin/ostestr
 BuildRequires:  python-mock
@@ -90,6 +92,9 @@ Requires:       python-neutron-lib >= 1.11.0
 Requires:       python-oslo-config >= 5.1.0
 Requires:       python-oslo-log >= 3.30.0
 Requires:       python-oslo-service
+Requires:       python-tooz >= 1.58.0
+Requires:       python-oslo-messaging >= 5.29.0
+Requires:       python-oslo-utils >= 3.33.0
 %{?systemd_requires}
 
 %package doc
