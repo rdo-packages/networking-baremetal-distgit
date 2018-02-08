@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9aa53dc9_577407fc",
+        "filename": "python-networking-baremetal.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 469
+      },
+      "writtenOn": "2018-02-08T07:38:51Z",
+      "side": 1,
+      "message": "We don\u0027t care about alphabetical ordering in rpm specs I assume? Approving.",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 43
+      },
+      "revId": "44b372caf21a83fc681257bb85c862ba09df6549",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
