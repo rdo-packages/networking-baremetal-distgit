@@ -17,25 +17,25 @@ BuildArch:      noarch
 BuildRequires:  git
 BuildRequires:  openstack-macros
 BuildRequires:  python2-devel
-BuildRequires:  python-pbr
+BuildRequires:  python2-pbr
 # for documentation
-BuildRequires:  python-openstackdocstheme
-BuildRequires:  python-sphinx
-BuildRequires:  python-tooz
-BuildRequires:  python-oslo-messaging
+BuildRequires:  python2-openstackdocstheme
+BuildRequires:  python2-sphinx
+BuildRequires:  python2-tooz
+BuildRequires:  python2-oslo-messaging
 # for unit tests
 BuildRequires:  /usr/bin/ostestr
-BuildRequires:  python-mock
-BuildRequires:  python-fixtures
-BuildRequires:  python-os-testr
-BuildRequires:  python-oslotest
-BuildRequires:  python-subunit
-BuildRequires:  python-ironicclient
+BuildRequires:  python2-mock
+BuildRequires:  python2-fixtures
+BuildRequires:  python2-os-testr
+BuildRequires:  python2-oslotest
+BuildRequires:  python2-subunit
+BuildRequires:  python2-ironicclient
 BuildRequires:  python-neutron-lib
 BuildRequires:  python-neutron-tests
-BuildRequires:  python-oslo-config
-BuildRequires:  python-oslo-i18n
-BuildRequires:  python-oslo-log
+BuildRequires:  python2-oslo-config
+BuildRequires:  python2-oslo-i18n
+BuildRequires:  python2-oslo-log
 
 %description
 This project's goal is to provide deep integration between the Networking
@@ -47,11 +47,11 @@ Bare Metal service.
 Summary:        %{common_summary}
 %{?python_provide:%python_provide python2-%{pkgname}}
 
-Requires:       python-neutron-lib >= 1.11.0
-Requires:       python-oslo-config >= 5.1.0
-Requires:       python-oslo-i18n >= 3.15.3
-Requires:       python-oslo-log >= 3.30.0
-Requires:       python-pbr >= 2.0.0
+Requires:       python-neutron-lib >= 1.13.0
+Requires:       python2-oslo-config >= 2:5.1.0
+Requires:       python2-oslo-i18n >= 3.15.3
+Requires:       python2-oslo-log >= 3.36.0
+Requires:       python2-pbr >= 2.0.0
 
 %description -n python2-%{pkgname}
 This project's goal is to provide deep integration between the Networking
@@ -66,10 +66,10 @@ This package contains the plugin itself.
 Summary:        %{common_summary} - tests
 
 Requires:       python2-%{pkgname} = %{version}-%{release}
-Requires:       python-mock >= 2.0.0
+Requires:       python2-mock >= 2.0.0
 Requires:       python-neutron-tests
-Requires:       python-oslotest >= 1.10.0
-Requires:       python-subunit >= 1.0.0
+Requires:       python2-oslotest >= 1.10.0
+Requires:       python2-subunit >= 1.0.0
 
 %description -n python2-%{pkgname}-tests
 This project's goal is to provide deep integration between the Networking
@@ -85,16 +85,16 @@ Summary:        %{common_summary} - Ironic Neutron Agent
 BuildRequires:  systemd-units
 
 Requires:       python-%{pkgname}
-Requires:       python-keystoneauth1
-Requires:       python-ironicclient >= 1.14.0
+Requires:       python2-keystoneauth1
+Requires:       python2-ironicclient >= 2.2.0
 Requires:       python-neutron
-Requires:       python-neutron-lib >= 1.11.0
-Requires:       python-oslo-config >= 5.1.0
-Requires:       python-oslo-log >= 3.30.0
-Requires:       python-oslo-service
-Requires:       python-tooz >= 1.58.0
-Requires:       python-oslo-messaging >= 5.29.0
-Requires:       python-oslo-utils >= 3.33.0
+Requires:       python-neutron-lib >= 1.13.0
+Requires:       python2-oslo-config >= 2:5.1.0
+Requires:       python2-oslo-log >= 3.36.0
+Requires:       python2-oslo-service
+Requires:       python2-tooz >= 1.58.0
+Requires:       python2-oslo-messaging >= 5.29.0
+Requires:       python2-oslo-utils >= 3.33.0
 %{?systemd_requires}
 
 %package doc
