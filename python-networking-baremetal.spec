@@ -4,8 +4,8 @@
 %global common_summary Neutron plugins for integration with Ironic
 
 Name:           python-%{pkgname}
-Version:        XXX
-Release:        XXX
+Version:        1.0.0
+Release:        1%{?dist}
 Summary:        %{common_summary}
 
 License:        ASL 2.0
@@ -168,3 +168,6 @@ install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/ironic-neutron-agent.ser
 
 
 %changelog
+* Tue Feb 20 2018 RDO <dev@lists.rdoproject.org> 1.0.0-1
+- Update to 1.0.0
+
