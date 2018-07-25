@@ -31,7 +31,7 @@ BuildRequires:  python2-os-testr
 BuildRequires:  python2-oslotest
 BuildRequires:  python2-subunit
 BuildRequires:  python2-ironicclient
-BuildRequires:  python-neutron-lib
+BuildRequires:  python-neutron-lib-tests
 BuildRequires:  python-neutron-tests
 BuildRequires:  python2-oslo-config
 BuildRequires:  python2-oslo-i18n
