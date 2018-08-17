@@ -47,8 +47,8 @@ Bare Metal service.
 Summary:        %{common_summary}
 %{?python_provide:%python_provide python2-%{pkgname}}
 
-Requires:       python-neutron-lib >= 1.13.0
-Requires:       python2-oslo-config >= 2:5.1.0
+Requires:       python-neutron-lib >= 1.18.0
+Requires:       python2-oslo-config >= 2:5.2.0
 Requires:       python2-oslo-i18n >= 3.15.3
 Requires:       python2-oslo-log >= 3.36.0
 Requires:       python2-pbr >= 2.0.0
@@ -86,10 +86,10 @@ BuildRequires:  systemd-units
 
 Requires:       python-%{pkgname}
 Requires:       python2-keystoneauth1
-Requires:       python2-ironicclient >= 2.2.0
+Requires:       python2-ironicclient >= 2.3.0
 Requires:       python-neutron
-Requires:       python-neutron-lib >= 1.13.0
-Requires:       python2-oslo-config >= 2:5.1.0
+Requires:       python-neutron-lib >= 1.18.0
+Requires:       python2-oslo-config >= 2:5.2.0
 Requires:       python2-oslo-log >= 3.36.0
 Requires:       python2-oslo-service
 Requires:       python2-tooz >= 1.58.0
