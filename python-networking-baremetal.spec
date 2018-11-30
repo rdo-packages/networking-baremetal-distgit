@@ -95,7 +95,11 @@ Requires:       python2-oslo-service
 Requires:       python2-tooz >= 1.58.0
 Requires:       python2-oslo-messaging >= 5.29.0
 Requires:       python2-oslo-utils >= 3.33.0
+%if 0%{?rhel} && 0%{?rhel} < 8
 %{?systemd_requires}
+%else
+%{?systemd_ordering} # does not exist on EL7
+%endif
 
 %package doc
 Summary:        %{common_summary} - documentation
