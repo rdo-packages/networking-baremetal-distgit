@@ -108,7 +108,12 @@ Requires:       python%{pyver}-oslo-service
 Requires:       python%{pyver}-tooz >= 1.58.0
 Requires:       python%{pyver}-oslo-messaging >= 5.29.0
 Requires:       python%{pyver}-oslo-utils >= 3.33.0
+
+%if 0%{?rhel} && 0%{?rhel} < 8
 %{?systemd_requires}
+%else
+%{?systemd_ordering} # does not exist on EL7
+%endif
 
 %package doc
 Summary:        %{common_summary} - documentation
