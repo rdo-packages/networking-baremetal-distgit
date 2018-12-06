@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9abe1de1_f3ff47a8",
+        "filename": "python-networking-baremetal.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 565
+      },
+      "writtenOn": "2018-12-06T22:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9abe1de1_782434ae",
+      "range": {
+        "startLine": 41,
+        "startChar": 25,
+        "endLine": 41,
+        "endChar": 32
+      },
+      "revId": "518b9515bbb93e555359d1d44badd68533a9fdb4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9abe1de1_583cd0c7",
         "filename": "python-networking-baremetal.spec",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-12-05T07:20:41Z",
       "side": 1,
       "message": "Not required",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 39
+      },
+      "revId": "518b9515bbb93e555359d1d44badd68533a9fdb4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9abe1de1_d32d6347",
+        "filename": "python-networking-baremetal.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 565
+      },
+      "writtenOn": "2018-12-06T22:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9abe1de1_583cd0c7",
       "range": {
         "startLine": 44,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9abe1de1_b330af9f",
+        "filename": "python-networking-baremetal.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 565
+      },
+      "writtenOn": "2018-12-06T22:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9abe1de1_3837dce4",
+      "range": {
+        "startLine": 64,
+        "startChar": 16,
+        "endLine": 64,
+        "endChar": 22
+      },
+      "revId": "518b9515bbb93e555359d1d44badd68533a9fdb4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9abe1de1_f83044ea",
         "filename": "python-networking-baremetal.spec",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2018-12-05T07:20:41Z",
       "side": 1,
       "message": "python%{pyver}",
+      "range": {
+        "startLine": 84,
+        "startChar": 16,
+        "endLine": 84,
+        "endChar": 31
+      },
+      "revId": "518b9515bbb93e555359d1d44badd68533a9fdb4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9abe1de1_9327eb63",
+        "filename": "python-networking-baremetal.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 565
+      },
+      "writtenOn": "2018-12-06T22:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9abe1de1_f83044ea",
       "range": {
         "startLine": 84,
         "startChar": 16,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "9abe1de1_53227353",
+        "filename": "python-networking-baremetal.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 565
+      },
+      "writtenOn": "2018-12-06T22:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9abe1de1_d84ea06e",
+      "range": {
+        "startLine": 101,
+        "startChar": 16,
+        "endLine": 101,
+        "endChar": 22
+      },
+      "revId": "518b9515bbb93e555359d1d44badd68533a9fdb4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9abe1de1_b851ac10",
         "filename": "python-networking-baremetal.spec",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2018-12-05T07:20:41Z",
       "side": 1,
       "message": "stestr --test-path %{srcname}/tests/unit run",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 35
+      },
+      "revId": "518b9515bbb93e555359d1d44badd68533a9fdb4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9abe1de1_331dbf0f",
+        "filename": "python-networking-baremetal.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 565
+      },
+      "writtenOn": "2018-12-06T22:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9abe1de1_b851ac10",
       "range": {
         "startLine": 146,
         "startChar": 0,
