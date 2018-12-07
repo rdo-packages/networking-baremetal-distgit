@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9abe1de1_f39bc770",
+        "filename": "python-networking-baremetal.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2018-12-07T05:59:04Z",
+      "side": 1,
+      "message": "Doc build is failing with warning is Error,\n\ncan u try with build_shinx(%{pyver_bin} setup.py build_sphinx -b html) as upstream still using it: https://github.com/openstack/networking-baremetal/blob/master/tox.ini#L48",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 54
+      },
+      "revId": "4859904b88d5da49e249398a9f8ac2b820ee1d00",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
