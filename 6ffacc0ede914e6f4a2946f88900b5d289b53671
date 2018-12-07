@@ -22,6 +22,30 @@
       "revId": "6ffacc0ede914e6f4a2946f88900b5d289b53671",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9abe1de1_735e9777",
+        "filename": "python-networking-baremetal.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 565
+      },
+      "writtenOn": "2018-12-07T15:58:23Z",
+      "side": 1,
+      "message": "I should have seen that.  Sorry.  Done!",
+      "parentUuid": "9abe1de1_7387b7d7",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 6
+      },
+      "revId": "6ffacc0ede914e6f4a2946f88900b5d289b53671",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
