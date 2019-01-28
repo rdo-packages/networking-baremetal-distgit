@@ -3,6 +3,8 @@
 %global pkgname networking-baremetal
 %global common_summary Neutron plugins for integration with Ironic
 
+%global with_doc 1
+
 Name:           python-%{pkgname}
 Version:        1.2.0
 Release:        1%{?dist}
@@ -18,9 +20,6 @@ BuildRequires:  git
 BuildRequires:  openstack-macros
 BuildRequires:  python2-devel
 BuildRequires:  python2-pbr
-# for documentation
-BuildRequires:  python2-openstackdocstheme
-BuildRequires:  python2-sphinx
 BuildRequires:  python2-tooz
 BuildRequires:  python2-oslo-messaging
 # for unit tests
@@ -97,9 +96,6 @@ Requires:       python2-oslo-messaging >= 5.29.0
 Requires:       python2-oslo-utils >= 3.33.0
 %{?systemd_requires}
 
-%package doc
-Summary:        %{common_summary} - documentation
-
 %description -n python2-ironic-neutron-agent
 This project's goal is to provide deep integration between the Networking
 service and the Bare Metal service and advanced networking features like
@@ -110,6 +106,12 @@ This package contains a neutron agent that populates the host to
 physical network mapping for baremetal nodes in neutron. Neutron uses this to
 calculate the segment to host mapping information.
 
+%if 0%{?with_doc}
+%package doc
+Summary:        %{common_summary} - documentation
+BuildRequires:  python2-openstackdocstheme
+BuildRequires:  python2-sphinx
+
 %description doc
 This project's goal is to provide deep integration between the Networking
 service and the Bare Metal service and advanced networking features like
@@ -117,6 +119,7 @@ notifications of port status changes and routed networks support in clouds with
 Bare Metal service.
 
 This package contains the documentation.
+%endif
 
 %prep
 %autosetup -n %{pkgname}-%{upstream_version} -S git
@@ -124,9 +127,11 @@ This package contains the documentation.
 
 %build
 %py2_build
+%if 0%{?with_doc}
 %{__python2} setup.py build_sphinx -b html
 # remove the sphinx-build leftovers
 rm -rf doc/build/html/.{doctrees,buildinfo}
+%endif
 
 %check
 ostestr --path %{srcname}/tests/unit
@@ -162,10 +167,11 @@ install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/ironic-neutron-agent.ser
 %{_bindir}/ironic-neutron-agent
 %{_unitdir}/ironic-neutron-agent.service
 
+%if 0%{?with_doc}
 %files doc
 %license LICENSE
 %doc doc/build/html README.rst
-
+%endif
 
 %changelog
 * Mon Aug 20 2018 RDO <dev@lists.rdoproject.org> 1.2.0-1
