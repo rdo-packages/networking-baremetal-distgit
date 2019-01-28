@@ -17,6 +17,8 @@
 %global pyver_build %py%{pyver}_build
 # End of macros for py2/py3 compatibility
 
+%global with_doc 1
+
 Name:           python-%{pkgname}
 Version:        XXX
 Release:        XXX
@@ -32,9 +34,6 @@ BuildRequires:  git
 BuildRequires:  openstack-macros
 BuildRequires:  python%{pyver}-devel
 BuildRequires:  python%{pyver}-pbr
-# for documentation
-BuildRequires:  python%{pyver}-openstackdocstheme
-BuildRequires:  python%{pyver}-sphinx
 BuildRequires:  python%{pyver}-tooz
 BuildRequires:  python%{pyver}-oslo-messaging
 # for unit tests
@@ -115,9 +114,6 @@ Requires:       python%{pyver}-oslo-utils >= 3.33.0
 %{?systemd_ordering} # does not exist on EL7
 %endif
 
-%package doc
-Summary:        %{common_summary} - documentation
-
 %description -n python%{pyver}-ironic-neutron-agent
 This project's goal is to provide deep integration between the Networking
 service and the Bare Metal service and advanced networking features like
@@ -128,6 +124,12 @@ This package contains a neutron agent that populates the host to
 physical network mapping for baremetal nodes in neutron. Neutron uses this to
 calculate the segment to host mapping information.
 
+%if 0%{?with_doc}
+%package doc
+Summary:        %{common_summary} - documentation
+BuildRequires:  python%{pyver}-openstackdocstheme
+BuildRequires:  python%{pyver}-sphinx
+
 %description doc
 This project's goal is to provide deep integration between the Networking
 service and the Bare Metal service and advanced networking features like
@@ -135,6 +137,7 @@ notifications of port status changes and routed networks support in clouds with
 Bare Metal service.
 
 This package contains the documentation.
+%endif
 
 %prep
 %autosetup -n %{pkgname}-%{upstream_version} -S git
@@ -142,8 +145,10 @@ This package contains the documentation.
 
 %build
 %{pyver_build}
+%if 0%{?with_doc}
 %{pyver_bin} setup.py build_sphinx -b html
 rm -rf %{docpath}/.{buildinfo,doctrees}
+%endif
 
 %check
 export PYTHON=%{pyver_bin}
@@ -180,9 +185,10 @@ install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/ironic-neutron-agent.ser
 %{_bindir}/ironic-neutron-agent
 %{_unitdir}/ironic-neutron-agent.service
 
+%if 0%{?with_doc}
 %files doc
 %license LICENSE
 %doc doc/build/html README.rst
-
+%endif
 
 %changelog
