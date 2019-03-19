@@ -59,6 +59,7 @@ Bare Metal service.
 Summary:        %{common_summary}
 %{?python_provide:%python_provide python%{pyver}-%{pkgname}}
 
+Requires:       openstack-neutron >= 1:13.0.0
 Requires:       python%{pyver}-neutron-lib >= 1.18.0
 Requires:       python%{pyver}-oslo-config >= 2:5.2.0
 Requires:       python%{pyver}-oslo-i18n >= 3.15.3
