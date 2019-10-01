@@ -6,7 +6,7 @@
 %global with_doc 1
 
 Name:           python-%{pkgname}
-Version:        1.2.0
+Version:        1.2.1
 Release:        1%{?dist}
 Summary:        %{common_summary}
 
@@ -174,6 +174,9 @@ install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/ironic-neutron-agent.ser
 %endif
 
 %changelog
+* Tue Oct 01 2019 RDO <dev@lists.rdoproject.org> 1.2.1-1
+- Update to 1.2.1
+
 * Mon Aug 20 2018 RDO <dev@lists.rdoproject.org> 1.2.0-1
 - Update to 1.2.0
 
