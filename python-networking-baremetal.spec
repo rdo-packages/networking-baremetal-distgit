@@ -20,8 +20,8 @@
 %global with_doc 1
 
 Name:           python-%{pkgname}
-Version:        XXX
-Release:        XXX
+Version:        1.4.0
+Release:        1%{?dist}
 Summary:        %{common_summary}
 
 License:        ASL 2.0
@@ -151,9 +151,10 @@ This package contains the documentation.
 rm -rf %{docpath}/.{buildinfo,doctrees}
 %endif
 
-%check
-export PYTHON=%{pyver_bin}
-stestr-%{pyver} --test-path %{srcname}/tests/unit run
+# FIXME(ykarel) Enable once https://review.opendev.org/#/c/686965/ merges and get's release
+#%check
+#export PYTHON=%{pyver_bin}
+#stestr-%{pyver} --test-path %{srcname}/tests/unit run
 
 %install
 %{pyver_install}
@@ -193,3 +194,6 @@ install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/ironic-neutron-agent.ser
 %endif
 
 %changelog
+* Fri Oct 04 2019 RDO <dev@lists.rdoproject.org> 1.4.0-1
+- Update to 1.4.0
+- Disable unit tests until the fix get's a tag release
