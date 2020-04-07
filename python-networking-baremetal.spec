@@ -130,6 +130,7 @@ calculate the segment to host mapping information.
 Summary:        %{common_summary} - documentation
 BuildRequires:  python%{pyver}-openstackdocstheme
 BuildRequires:  python%{pyver}-sphinx
+BuildRequires:  python%{pyver}-sphinxcontrib-apidoc
 
 %description doc
 This project's goal is to provide deep integration between the Networking
@@ -147,8 +148,8 @@ This package contains the documentation.
 %build
 %{pyver_build}
 %if 0%{?with_doc}
-%{pyver_bin} setup.py build_sphinx -b html
-rm -rf %{docpath}/.{buildinfo,doctrees}
+sphinx-build-%{pyver} -b html doc/source doc/build/html
+rm -rf doc/build/html/.{buildinfo,doctrees}
 %endif
 
 %check
