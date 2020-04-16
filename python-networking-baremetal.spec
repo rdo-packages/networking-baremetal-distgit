@@ -4,18 +4,6 @@
 %global common_summary Neutron plugins for integration with Ironic
 %global docpath doc/build/html
 
-# Macros for py2/py3 compatibility
-%if 0%{?fedora} || 0%{?rhel} > 7
-%global pyver %{python3_pkgversion}
-%else
-%global pyver 2
-%endif
-
-%global pyver_bin python%{pyver}
-%global pyver_sitelib %python%{pyver}_sitelib
-%global pyver_install %py%{pyver}_install
-%global pyver_build %py%{pyver}_build
-# End of macros for py2/py3 compatibility
 
 %global with_doc 1
 
@@ -32,22 +20,22 @@ Source1:        ironic-neutron-agent.service
 BuildArch:      noarch
 BuildRequires:  git
 BuildRequires:  openstack-macros
-BuildRequires:  python%{pyver}-devel
-BuildRequires:  python%{pyver}-pbr
-BuildRequires:  python%{pyver}-tooz
-BuildRequires:  python%{pyver}-oslo-messaging
+BuildRequires:  python3-devel
+BuildRequires:  python3-pbr
+BuildRequires:  python3-tooz
+BuildRequires:  python3-oslo-messaging
 # for unit tests
-BuildRequires:  /usr/bin/stestr-%{pyver}
-BuildRequires:  python%{pyver}-mock
-BuildRequires:  python%{pyver}-fixtures
-BuildRequires:  python%{pyver}-oslotest
-BuildRequires:  python%{pyver}-subunit
-BuildRequires:  python%{pyver}-ironicclient
-BuildRequires:  python%{pyver}-neutron-lib-tests
-BuildRequires:  python%{pyver}-neutron-tests
-BuildRequires:  python%{pyver}-oslo-config
-BuildRequires:  python%{pyver}-oslo-i18n
-BuildRequires:  python%{pyver}-oslo-log
+BuildRequires:  /usr/bin/stestr-3
+BuildRequires:  python3-mock
+BuildRequires:  python3-fixtures
+BuildRequires:  python3-oslotest
+BuildRequires:  python3-subunit
+BuildRequires:  python3-ironicclient
+BuildRequires:  python3-neutron-lib-tests
+BuildRequires:  python3-neutron-tests
+BuildRequires:  python3-oslo-config
+BuildRequires:  python3-oslo-i18n
+BuildRequires:  python3-oslo-log
 
 %description
 This project's goal is to provide deep integration between the Networking
@@ -55,18 +43,18 @@ service and the Bare Metal service and advanced networking features like
 notifications of port status changes and routed networks support in clouds with
 Bare Metal service.
 
-%package -n python%{pyver}-%{pkgname}
+%package -n python3-%{pkgname}
 Summary:        %{common_summary}
-%{?python_provide:%python_provide python%{pyver}-%{pkgname}}
+%{?python_provide:%python_provide python3-%{pkgname}}
 
 Requires:       openstack-neutron-common >= 1:14.0.0
-Requires:       python%{pyver}-neutron-lib >= 1.28.0
-Requires:       python%{pyver}-oslo-config >= 2:5.2.0
-Requires:       python%{pyver}-oslo-i18n >= 3.15.3
-Requires:       python%{pyver}-oslo-log >= 3.36.0
-Requires:       python%{pyver}-pbr >= 2.0.0
+Requires:       python3-neutron-lib >= 1.28.0
+Requires:       python3-oslo-config >= 2:5.2.0
+Requires:       python3-oslo-i18n >= 3.15.3
+Requires:       python3-oslo-log >= 3.36.0
+Requires:       python3-pbr >= 2.0.0
 
-%description -n python%{pyver}-%{pkgname}
+%description -n python3-%{pkgname}
 This project's goal is to provide deep integration between the Networking
 service and the Bare Metal service and advanced networking features like
 notifications of port status changes and routed networks support in clouds with
@@ -75,16 +63,16 @@ Bare Metal service.
 This package contains the plugin itself.
 
 
-%package -n python%{pyver}-%{pkgname}-tests
+%package -n python3-%{pkgname}-tests
 Summary:        %{common_summary} - tests
 
-Requires:       python%{pyver}-%{pkgname} = %{version}-%{release}
-Requires:       python%{pyver}-mock >= 2.0.0
-Requires:       python%{pyver}-neutron-tests
-Requires:       python%{pyver}-oslotest >= 1.10.0
-Requires:       python%{pyver}-subunit >= 1.0.0
+Requires:       python3-%{pkgname} = %{version}-%{release}
+Requires:       python3-mock >= 2.0.0
+Requires:       python3-neutron-tests
+Requires:       python3-oslotest >= 1.10.0
+Requires:       python3-subunit >= 1.0.0
 
-%description -n python%{pyver}-%{pkgname}-tests
+%description -n python3-%{pkgname}-tests
 This project's goal is to provide deep integration between the Networking
 service and the Bare Metal service and advanced networking features like
 notifications of port status changes and routed networks support in clouds with
@@ -92,22 +80,22 @@ Bare Metal service.
 
 This package contains the unit tests.
 
-%package -n python%{pyver}-ironic-neutron-agent
+%package -n python3-ironic-neutron-agent
 Summary:        %{common_summary} - Ironic Neutron Agent
-%{?python_provide:%python_provide python%{pyver}-ironic-neutron-agent}
+%{?python_provide:%python_provide python3-ironic-neutron-agent}
 BuildRequires:  systemd-units
 
-Requires:       python%{pyver}-%{pkgname}
-Requires:       python%{pyver}-keystoneauth1
-Requires:       python%{pyver}-ironicclient >= 2.3.0
-Requires:       python%{pyver}-neutron
-Requires:       python%{pyver}-neutron-lib >= 1.28.0
-Requires:       python%{pyver}-oslo-config >= 2:5.2.0
-Requires:       python%{pyver}-oslo-log >= 3.36.0
-Requires:       python%{pyver}-oslo-service
-Requires:       python%{pyver}-tooz >= 1.58.0
-Requires:       python%{pyver}-oslo-messaging >= 5.29.0
-Requires:       python%{pyver}-oslo-utils >= 3.33.0
+Requires:       python3-%{pkgname}
+Requires:       python3-keystoneauth1
+Requires:       python3-ironicclient >= 2.3.0
+Requires:       python3-neutron
+Requires:       python3-neutron-lib >= 1.28.0
+Requires:       python3-oslo-config >= 2:5.2.0
+Requires:       python3-oslo-log >= 3.36.0
+Requires:       python3-oslo-service
+Requires:       python3-tooz >= 1.58.0
+Requires:       python3-oslo-messaging >= 5.29.0
+Requires:       python3-oslo-utils >= 3.33.0
 
 %if 0%{?rhel} && 0%{?rhel} < 8
 %{?systemd_requires}
@@ -115,7 +103,7 @@ Requires:       python%{pyver}-oslo-utils >= 3.33.0
 %{?systemd_ordering} # does not exist on EL7
 %endif
 
-%description -n python%{pyver}-ironic-neutron-agent
+%description -n python3-ironic-neutron-agent
 This project's goal is to provide deep integration between the Networking
 service and the Bare Metal service and advanced networking features like
 notifications of port status changes and routed networks support in clouds with
@@ -128,9 +116,9 @@ calculate the segment to host mapping information.
 %if 0%{?with_doc}
 %package doc
 Summary:        %{common_summary} - documentation
-BuildRequires:  python%{pyver}-openstackdocstheme
-BuildRequires:  python%{pyver}-sphinx
-BuildRequires:  python%{pyver}-sphinxcontrib-apidoc
+BuildRequires:  python3-openstackdocstheme
+BuildRequires:  python3-sphinx
+BuildRequires:  python3-sphinxcontrib-apidoc
 
 %description doc
 This project's goal is to provide deep integration between the Networking
@@ -146,43 +134,43 @@ This package contains the documentation.
 %py_req_cleanup
 
 %build
-%{pyver_build}
+%{py3_build}
 %if 0%{?with_doc}
-sphinx-build-%{pyver} -b html doc/source doc/build/html
+sphinx-build-3 -b html doc/source doc/build/html
 rm -rf doc/build/html/.{buildinfo,doctrees}
 %endif
 
 %check
-export PYTHON=%{pyver_bin}
-stestr-%{pyver} --test-path %{srcname}/tests/unit run
+export PYTHON=python3
+stestr-3 --test-path %{srcname}/tests/unit run
 
 %install
-%{pyver_install}
+%{py3_install}
 
 # Install systemd units
 install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/ironic-neutron-agent.service
 
-%post -n python%{pyver}-ironic-neutron-agent
+%post -n python3-ironic-neutron-agent
 %systemd_post ironic-neutron-agent.service
 
-%preun -n python%{pyver}-ironic-neutron-agent
+%preun -n python3-ironic-neutron-agent
 %systemd_preun ironic-neutron-agent.service
 
-%postun -n python%{pyver}-ironic-neutron-agent
+%postun -n python3-ironic-neutron-agent
 %systemd_postun_with_restart ironic-neutron-agent.service
 
 
-%files -n python%{pyver}-%{pkgname}
+%files -n python3-%{pkgname}
 %license LICENSE
-%{pyver_sitelib}/%{srcname}
-%{pyver_sitelib}/%{srcname}*.egg-info
-%exclude %{pyver_sitelib}/%{srcname}/tests
+%{python3_sitelib}/%{srcname}
+%{python3_sitelib}/%{srcname}*.egg-info
+%exclude %{python3_sitelib}/%{srcname}/tests
 
-%files -n python%{pyver}-%{pkgname}-tests
+%files -n python3-%{pkgname}-tests
 %license LICENSE
-%{pyver_sitelib}/%{srcname}/tests
+%{python3_sitelib}/%{srcname}/tests
 
-%files -n python%{pyver}-ironic-neutron-agent
+%files -n python3-ironic-neutron-agent
 %license LICENSE
 %{_bindir}/ironic-neutron-agent
 %{_unitdir}/ironic-neutron-agent.service
