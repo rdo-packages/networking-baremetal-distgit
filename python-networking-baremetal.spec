@@ -86,16 +86,17 @@ Summary:        %{common_summary} - Ironic Neutron Agent
 BuildRequires:  systemd-units
 
 Requires:       python3-%{pkgname}
-Requires:       python3-keystoneauth1
-Requires:       python3-ironicclient >= 2.3.0
-Requires:       python3-neutron
+Requires:       python3-keystoneauth1 >= 3.4.0
+Requires:       python3-neutron >= 14.0.0.0b1
 Requires:       python3-neutron-lib >= 1.28.0
+Requires:       python3-openstacksdk >= 0.31.2
 Requires:       python3-oslo-config >= 2:5.2.0
 Requires:       python3-oslo-log >= 3.36.0
-Requires:       python3-oslo-service
-Requires:       python3-tooz >= 1.58.0
 Requires:       python3-oslo-messaging >= 5.29.0
+Requires:       python3-oslo-service >= 1.30.0
 Requires:       python3-oslo-utils >= 3.33.0
+Requires:       python3-tenacity >= 4.9.0
+Requires:       python3-tooz >= 1.58.0
 
 %if 0%{?rhel} && 0%{?rhel} < 8
 %{?systemd_requires}
