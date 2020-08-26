@@ -1,0 +1,9 @@
+Code-Review+2: Yatin Karel <ykarel@redhat.com>
+Code-Review+2: Iury Gregory Melo Ferreira <iurygregory@gmail.com>
+Workflow+1: Iury Gregory Melo Ferreira <iurygregory@gmail.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Wed, 26 Aug 2020 12:04:17 +0000
+Reviewed-on: https://review.rdoproject.org/r/29063
+Project: openstack/networking-baremetal-distgit
+Branch: refs/heads/rpm-master
