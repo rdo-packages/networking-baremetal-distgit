@@ -1,4 +1,3 @@
-%global milestone .0rc1
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global srcname networking_baremetal
 %global pkgname networking-baremetal
@@ -10,14 +9,12 @@
 
 Name:           python-%{pkgname}
 Version:        3.0.0
-Release:        0.1%{?milestone}%{?dist}
+Release:        1%{?dist}
 Summary:        %{common_summary}
 
 License:        ASL 2.0
 URL:            https://pypi.python.org/pypi/%{pkgname}
 Source0:        https://tarballs.openstack.org/%{pkgname}/%{pkgname}-%{upstream_version}.tar.gz
-#
-# patches_base=3.0.0.0rc1
 #
 
 Source1:        ironic-neutron-agent.service
@@ -188,6 +185,9 @@ install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/ironic-neutron-agent.ser
 %endif
 
 %changelog
+* Wed Oct 14 2020 RDO <dev@lists.rdoproject.org> 3.0.0-1
+- Update to 3.0.0
+
 * Fri Sep 25 2020 RDO <dev@lists.rdoproject.org> 3.0.0-0.1.0rc1
 - Update to 3.0.0.0rc1
 
