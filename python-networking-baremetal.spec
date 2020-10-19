@@ -1,3 +1,5 @@
+%{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
+%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global srcname networking_baremetal
 %global pkgname networking-baremetal
@@ -9,7 +11,7 @@
 
 Name:           python-%{pkgname}
 Version:        3.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        %{common_summary}
 
 License:        ASL 2.0
@@ -18,8 +20,18 @@ Source0:        https://tarballs.openstack.org/%{pkgname}/%{pkgname}-%{upstream_
 #
 
 Source1:        ironic-neutron-agent.service
+# Required for tarball sources verification
+%if 0%{?sources_gpg} == 1
+Source101:        https://tarballs.openstack.org/%{pkgname}/%{pkgname}-%{upstream_version}.tar.gz.asc
+Source102:        https://releases.openstack.org/_static/%{sources_gpg_sign}.txt
+%endif
 
 BuildArch:      noarch
+
+# Required for tarball sources verification
+%if 0%{?sources_gpg} == 1
+BuildRequires:  /usr/bin/gpgv2
+%endif
 BuildRequires:  git
 BuildRequires:  openstack-macros
 BuildRequires:  python3-devel
@@ -133,6 +145,10 @@ This package contains the documentation.
 %endif
 
 %prep
+# Required for tarball sources verification
+%if 0%{?sources_gpg} == 1
+%{gpgverify}  --keyring=%{SOURCE102} --signature=%{SOURCE101} --data=%{SOURCE0}
+%endif
 %autosetup -n %{pkgname}-%{upstream_version} -S git
 %py_req_cleanup
 
@@ -185,6 +201,9 @@ install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/ironic-neutron-agent.ser
 %endif
 
 %changelog
+* Wed Oct 21 2020 Joel Capitao <jcapitao@redhat.com> 3.0.0-2
+- Enable sources tarball validation using GPG signature.
+
 * Wed Oct 14 2020 RDO <dev@lists.rdoproject.org> 3.0.0-1
 - Update to 3.0.0
 
