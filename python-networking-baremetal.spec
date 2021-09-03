@@ -64,7 +64,7 @@ Requires:       python3-neutron-lib >= 1.28.0
 Requires:       python3-oslo-config >= 2:5.2.0
 Requires:       python3-oslo-i18n >= 3.15.3
 Requires:       python3-oslo-log >= 3.36.0
-Requires:       python3-pbr >= 2.0.0
+Requires:       python3-pbr >= 3.1.1
 
 %description -n python3-%{pkgname}
 This project's goal is to provide deep integration between the Networking
@@ -105,8 +105,8 @@ Requires:       python3-openstacksdk >= 0.31.2
 Requires:       python3-oslo-config >= 2:5.2.0
 Requires:       python3-oslo-log >= 3.36.0
 Requires:       python3-oslo-messaging >= 5.29.0
-Requires:       python3-oslo-service >= 1.30.0
-Requires:       python3-oslo-utils >= 3.33.0
+Requires:       python3-oslo-service >= 1.40.2
+Requires:       python3-oslo-utils >= 3.40.2
 Requires:       python3-tenacity >= 6.0.0
 Requires:       python3-tooz >= 2.5.1
 
