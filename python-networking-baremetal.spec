@@ -10,8 +10,8 @@
 %global with_doc 1
 
 Name:           python-%{pkgname}
-Version:        XXX
-Release:        XXX
+Version:        5.0.0
+Release:        1%{?dist}
 Summary:        %{common_summary}
 
 License:        ASL 2.0
@@ -199,4 +199,7 @@ install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/ironic-neutron-agent.ser
 %endif
 
 %changelog
+* Mon Oct 11 2021 RDO <dev@lists.rdoproject.org> 5.0.0-1
+- Update to 5.0.0
+
 
