@@ -16,6 +16,23 @@
       "message": "Issue filed at hhttps://storyboard.openstack.org/#!/story/2009898",
       "revId": "5c96cc28ac0fc5fd231c1a40a69dad2525a5128f",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54ab4eac_0fbf9a97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2022-03-08T17:58:49Z",
+      "side": 1,
+      "message": "@Iury @Riccardo: have you an idea on what could be done to fix this issue ?",
+      "revId": "5c96cc28ac0fc5fd231c1a40a69dad2525a5128f",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
