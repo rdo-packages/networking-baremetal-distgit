@@ -33,6 +33,23 @@
       "message": "@Iury @Riccardo: have you an idea on what could be done to fix this issue ?",
       "revId": "5c96cc28ac0fc5fd231c1a40a69dad2525a5128f",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91d96750_163cdaf8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 625
+      },
+      "writtenOn": "2022-03-08T19:36:48Z",
+      "side": 1,
+      "message": "Hi Joe, I was able to reproduce the issue locally, trying to figure out a fix to push directly to master and then to stable/yoga. ",
+      "revId": "5c96cc28ac0fc5fd231c1a40a69dad2525a5128f",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
