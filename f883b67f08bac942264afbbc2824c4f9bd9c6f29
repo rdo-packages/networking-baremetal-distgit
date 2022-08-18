@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15b3ad44_c174d40f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2022-08-18T07:02:21Z",
+      "side": 1,
+      "message": "It\u0027s missing python3-ncclient, we need to add it https://review.rdoproject.org/r/q/topic:add-python-ncclient",
+      "revId": "f883b67f08bac942264afbbc2824c4f9bd9c6f29",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
