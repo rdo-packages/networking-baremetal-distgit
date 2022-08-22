@@ -48,6 +48,7 @@ BuildRequires:  python3-neutron-tests
 BuildRequires:  python3-oslo-config
 BuildRequires:  python3-oslo-i18n
 BuildRequires:  python3-oslo-log
+BuildRequires:  python3-ncclient
 
 %description
 This project's goal is to provide deep integration between the Networking
@@ -65,6 +66,7 @@ Requires:       python3-oslo-config >= 2:5.2.0
 Requires:       python3-oslo-i18n >= 3.15.3
 Requires:       python3-oslo-log >= 3.36.0
 Requires:       python3-pbr >= 3.1.1
+Requires:       python3-ncclient >= 0.6.9
 
 %description -n python3-%{pkgname}
 This project's goal is to provide deep integration between the Networking
