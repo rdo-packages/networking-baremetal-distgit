@@ -16,6 +16,23 @@
       "message": "It\u0027s missing python3-ncclient, we need to add it https://review.rdoproject.org/r/q/topic:add-python-ncclient",
       "revId": "f883b67f08bac942264afbbc2824c4f9bd9c6f29",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b80faf20_a81c0b4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 757
+      },
+      "writtenOn": "2022-08-22T06:34:31Z",
+      "side": 1,
+      "message": "recheck",
+      "revId": "f883b67f08bac942264afbbc2824c4f9bd9c6f29",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
