@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0xa7475c5f2122fec3f90343223fe3bf5aad1080e4
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global srcname networking_baremetal
 %global pkgname networking-baremetal
@@ -10,8 +10,8 @@
 %global with_doc 1
 
 Name:           python-%{pkgname}
-Version:        XXX
-Release:        XXX
+Version:        6.1.0
+Release:        1%{?dist}
 Summary:        %{common_summary}
 
 License:        ASL 2.0
@@ -201,4 +201,7 @@ install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/ironic-neutron-agent.ser
 %endif
 
 %changelog
+* Mon Mar 20 2023 RDO <dev@lists.rdoproject.org> 6.1.0-1
+- Update to 6.1.0
+
 
