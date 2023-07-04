@@ -1,6 +1,12 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+# we are excluding some BRs from automatic generator
+%global excluded_brs doc8 bandit pre-commit hacking flake8-import-order
+# Exclude sphinx from BRs if docs are disabled
+%if ! 0%{?with_doc}
+%global excluded_brs %{excluded_brs} sphinx openstackdocstheme
+%endif
 %global srcname networking_baremetal
 %global pkgname networking-baremetal
 %global common_summary Neutron plugins for integration with Ironic
@@ -14,7 +20,7 @@ Version:        XXX
 Release:        XXX
 Summary:        %{common_summary}
 
-License:        ASL 2.0
+License:        Apache-2.0
 URL:            https://pypi.python.org/pypi/%{pkgname}
 Source0:        https://tarballs.openstack.org/%{pkgname}/%{pkgname}-%{upstream_version}.tar.gz
 Source1:        ironic-neutron-agent.service
@@ -33,22 +39,9 @@ BuildRequires:  /usr/bin/gpgv2
 BuildRequires:  git-core
 BuildRequires:  openstack-macros
 BuildRequires:  python3-devel
-BuildRequires:  python3-pbr
-BuildRequires:  python3-tooz
-BuildRequires:  python3-oslo-messaging
-# for unit tests
-BuildRequires:  /usr/bin/stestr-3
-BuildRequires:  python3-mock
-BuildRequires:  python3-fixtures
-BuildRequires:  python3-oslotest
-BuildRequires:  python3-subunit
-BuildRequires:  python3-ironicclient
+BuildRequires:  pyproject-rpm-macros
 BuildRequires:  python3-neutron-lib-tests
 BuildRequires:  python3-neutron-tests
-BuildRequires:  python3-oslo-config
-BuildRequires:  python3-oslo-i18n
-BuildRequires:  python3-oslo-log
-BuildRequires:  python3-ncclient
 
 %description
 This project's goal is to provide deep integration between the Networking
@@ -58,15 +51,8 @@ Bare Metal service.
 
 %package -n python3-%{pkgname}
 Summary:        %{common_summary}
-%{?python_provide:%python_provide python3-%{pkgname}}
 
 Requires:       openstack-neutron-common >= 1:14.0.0
-Requires:       python3-neutron-lib >= 1.28.0
-Requires:       python3-oslo-config >= 2:5.2.0
-Requires:       python3-oslo-i18n >= 3.15.3
-Requires:       python3-oslo-log >= 3.36.0
-Requires:       python3-pbr >= 3.1.1
-Requires:       python3-ncclient >= 0.6.9
 
 %description -n python3-%{pkgname}
 This project's goal is to provide deep integration between the Networking
@@ -79,7 +65,6 @@ This package contains the plugin itself.
 
 %package -n python3-%{pkgname}-tests
 Summary:        %{common_summary} - tests
-
 Requires:       python3-%{pkgname} = %{version}-%{release}
 Requires:       python3-mock >= 2.0.0
 Requires:       python3-neutron-tests
@@ -96,27 +81,9 @@ This package contains the unit tests.
 
 %package -n python3-ironic-neutron-agent
 Summary:        %{common_summary} - Ironic Neutron Agent
-%{?python_provide:%python_provide python3-ironic-neutron-agent}
 BuildRequires:  systemd-units
 
-Requires:       python3-%{pkgname}
-Requires:       python3-keystoneauth1 >= 3.14.0
-Requires:       python3-neutron >= 14.0.0.0b1
-Requires:       python3-neutron-lib >= 1.28.0
-Requires:       python3-openstacksdk >= 0.31.2
-Requires:       python3-oslo-config >= 2:5.2.0
-Requires:       python3-oslo-log >= 3.36.0
-Requires:       python3-oslo-messaging >= 5.29.0
-Requires:       python3-oslo-service >= 1.40.2
-Requires:       python3-oslo-utils >= 3.40.2
-Requires:       python3-tenacity >= 6.0.0
-Requires:       python3-tooz >= 2.5.1
-
-%if 0%{?rhel} && 0%{?rhel} < 8
-%{?systemd_requires}
-%else
-%{?systemd_ordering} # does not exist on EL7
-%endif
+%{?systemd_ordering}
 
 %description -n python3-ironic-neutron-agent
 This project's goal is to provide deep integration between the Networking
@@ -131,9 +98,6 @@ calculate the segment to host mapping information.
 %if 0%{?with_doc}
 %package doc
 Summary:        %{common_summary} - documentation
-BuildRequires:  python3-openstackdocstheme
-BuildRequires:  python3-sphinx
-BuildRequires:  python3-sphinxcontrib-apidoc
 
 %description doc
 This project's goal is to provide deep integration between the Networking
@@ -150,21 +114,41 @@ This package contains the documentation.
 %{gpgverify}  --keyring=%{SOURCE102} --signature=%{SOURCE101} --data=%{SOURCE0}
 %endif
 %autosetup -n %{pkgname}-%{upstream_version} -S git
-%py_req_cleanup
+
+sed -i /^[[:space:]]*-c{env:.*_CONSTRAINTS_FILE.*/d tox.ini
+sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
+sed -i /^minversion.*/d tox.ini
+sed -i /^requires.*virtualenv.*/d tox.ini
+
+# Exclude some bad-known BRs
+for pkg in %{excluded_brs}; do
+  for reqfile in doc/requirements.txt test-requirements.txt; do
+    if [ -f $reqfile ]; then
+      sed -i /^${pkg}.*/d $reqfile
+    fi
+  done
+done
+
+# Automatic BR generation
+%generate_buildrequires
+%if 0%{?with_doc}
+  %pyproject_buildrequires -t -e %{default_toxenv},docs
+%else
+  %pyproject_buildrequires -t -e %{default_toxenv}
+%endif
 
 %build
-%{py3_build}
+%pyproject_wheel
 %if 0%{?with_doc}
-sphinx-build-3 -b html doc/source doc/build/html
+%tox -e docs
 rm -rf doc/build/html/.{buildinfo,doctrees}
 %endif
 
 %check
-export PYTHON=python3
-stestr-3 --test-path %{srcname}/tests/unit run
+%tox -e %{default_toxenv}
 
 %install
-%{py3_install}
+%pyproject_install
 
 # Install systemd units
 install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/ironic-neutron-agent.service
@@ -182,7 +166,7 @@ install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/ironic-neutron-agent.ser
 %files -n python3-%{pkgname}
 %license LICENSE
 %{python3_sitelib}/%{srcname}
-%{python3_sitelib}/%{srcname}*.egg-info
+%{python3_sitelib}/%{srcname}*.dist-info
 %exclude %{python3_sitelib}/%{srcname}/tests
 
 %files -n python3-%{pkgname}-tests
