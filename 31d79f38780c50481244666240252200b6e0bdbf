@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c1580ed_882351dc",
+        "filename": "python-networking-baremetal.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-07-06T08:06:52Z",
+      "side": 1,
+      "message": "I think we can remove this BR now as the stestr-3 binary is now shipped by our package\n\n$ rpm -qlp https://trunk.rdoproject.org/centos9-master/deps/latest/noarch/python3-stestr-4.0.1-1.el9s.noarch.rpm | grep -e \"/usr/bin\"\n/usr/bin/stestr\n/usr/bin/stestr-3\n/usr/bin/stestr-3.9\n\nand stestr is in test-requirements.txt [1]\n\n[1] https://github.com/openstack/networking-baremetal/blob/639b0afd18d149e2368de718f4f23b6fee742a65/test-requirements.txt#L9",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 33
+      },
+      "revId": "31d79f38780c50481244666240252200b6e0bdbf",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "662da2b8_afdd9bf4",
+        "filename": "python-networking-baremetal.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-07-06T08:06:52Z",
+      "side": 1,
+      "message": "Missing extra line after for clarity",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 8
+      },
+      "revId": "31d79f38780c50481244666240252200b6e0bdbf",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "237a4a80_8970a3a8",
+        "filename": "python-networking-baremetal.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-07-06T08:06:52Z",
+      "side": 1,
+      "message": "we can now remove the conditional and keep only %{?systemd_ordering}",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 6
+      },
+      "revId": "31d79f38780c50481244666240252200b6e0bdbf",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "001f8cb4_e8726aa0",
+        "filename": "python-networking-baremetal.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-07-06T08:06:52Z",
+      "side": 1,
+      "message": "Missing extra line after for clarity",
+      "revId": "31d79f38780c50481244666240252200b6e0bdbf",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
