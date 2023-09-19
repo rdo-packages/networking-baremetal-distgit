@@ -16,6 +16,23 @@
       "message": "looks like there is an issue with latest neutron-lib",
       "revId": "ed10649563b799dc33093ae78a210573b576e396",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4aa5f26_ca61f778",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-09-19T06:42:49Z",
+      "side": 1,
+      "message": "recheck",
+      "revId": "ed10649563b799dc33093ae78a210573b576e396",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
