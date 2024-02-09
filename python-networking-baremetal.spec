@@ -206,3 +206,4 @@ install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/ironic-neutron-agent.ser
 - Update to 5.1.0
 
 
+# REMOVEME: error caused by commit https://opendev.org/openstack/networking-baremetal/commit/3b99ee3bc720d2e56487439ee52e5fceb45f6bcd
