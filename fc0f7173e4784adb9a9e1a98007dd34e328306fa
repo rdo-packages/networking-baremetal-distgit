@@ -1,0 +1,8 @@
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Code-Review+2: Alfredo Moralejo <amoralej@redhat.com>
+Workflow+1: Alfredo Moralejo <amoralej@redhat.com>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Thu, 14 Mar 2024 12:48:38 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/networking-baremetal-distgit/+/52234
+Project: openstack/networking-baremetal-distgit
+Branch: refs/heads/caracal-rdo
