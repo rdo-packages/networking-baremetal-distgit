@@ -66,7 +66,6 @@ This package contains the plugin itself.
 %package -n python3-%{pkgname}-tests
 Summary:        %{common_summary} - tests
 Requires:       python3-%{pkgname} = %{version}-%{release}
-Requires:       python3-mock >= 2.0.0
 Requires:       python3-neutron-tests
 Requires:       python3-oslotest >= 1.10.0
 Requires:       python3-subunit >= 1.0.0
