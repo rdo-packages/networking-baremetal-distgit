@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0xf8675126e2411e7748dd46662fc2093e4682645f
+%global sources_gpg_sign 0x22284f69d9eccdf3df7819791c711af193ff8e54
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 # we are excluding some BRs from automatic generator
 %global excluded_brs doc8 bandit pre-commit hacking flake8-import-order
@@ -16,7 +16,7 @@
 %global with_doc 1
 
 Name:           python-%{pkgname}
-Version:        6.2.1
+Version:        6.2.2
 Release:        1%{?dist}
 Summary:        %{common_summary}
 
@@ -185,6 +185,9 @@ install -p -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/ironic-neutron-agent.ser
 %endif
 
 %changelog
+* Thu Feb 20 2025 RDO <dev@lists.rdoproject.org> 6.2.2-1
+- Update to 6.2.2
+
 * Thu May 09 2024 RDO <dev@lists.rdoproject.org> 6.2.1-1
 - Update to 6.2.1
 
