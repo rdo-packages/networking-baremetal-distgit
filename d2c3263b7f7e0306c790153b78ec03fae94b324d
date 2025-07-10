@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e11c68f_8e2df09a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 147
+      },
+      "writtenOn": "2025-07-10T04:12:07Z",
+      "side": 1,
+      "message": "recheck missing build logs",
+      "revId": "d2c3263b7f7e0306c790153b78ec03fae94b324d",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
